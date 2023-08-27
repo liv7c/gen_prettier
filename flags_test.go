@@ -24,8 +24,9 @@ func TestParseFlags(t *testing.T) {
 				TargetDirectory: ".",
 				FileExtension:   "rc",
 				PrettierOptions: prettierOptions{
-					WithSemi: true,
-					TabWidth: 2,
+					ArrowParens: "always",
+					WithSemi:    true,
+					TabWidth:    2,
 				},
 			},
 		},
@@ -37,8 +38,9 @@ func TestParseFlags(t *testing.T) {
 				TargetDirectory: "/test/dir",
 				FileExtension:   "rc",
 				PrettierOptions: prettierOptions{
-					WithSemi: false,
-					TabWidth: 4,
+					ArrowParens: "always",
+					WithSemi:    false,
+					TabWidth:    4,
 				},
 			},
 		},
@@ -50,8 +52,9 @@ func TestParseFlags(t *testing.T) {
 				TargetDirectory: ".",
 				FileExtension:   "rc",
 				PrettierOptions: prettierOptions{
-					WithSemi: true,
-					TabWidth: 2,
+					ArrowParens: "always",
+					WithSemi:    true,
+					TabWidth:    2,
 				},
 			},
 			expectedOutputContains: "Usage of gen_prettier:",
@@ -98,7 +101,8 @@ func TestValidateConfig(t *testing.T) {
 				FileExtension:   "yaml",
 				TargetDirectory: "/dir/path",
 				PrettierOptions: prettierOptions{
-					TabWidth: 4,
+					ArrowParens: "always",
+					TabWidth:    4,
 				},
 			},
 			errs: []error{},
@@ -106,13 +110,15 @@ func TestValidateConfig(t *testing.T) {
 		{
 			conf: config{
 				PrettierOptions: prettierOptions{
-					TabWidth: 14,
+					ArrowParens: "some_gibberish",
+					TabWidth:    14,
 				},
 				FileExtension: "ts",
 			},
 			errs: []error{
 				errors.New("invalid file extension. supported extensions: rc, json, yaml or js"),
 				errors.New("tab width number must be lower or equal to 12"),
+				errors.New("invalid option value for arrow parens"),
 			},
 		},
 	}

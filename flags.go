@@ -23,6 +23,7 @@ func parseFlags(w io.Writer, args []string) (config, error) {
 	fs.SetOutput(w)
 	fs.StringVar(&conf.TargetDirectory, "d", ".", "Target directory")
 	fs.StringVar(&conf.FileExtension, "ext", "rc", "File extension for your prettier file. Choose between rc, js, json or yaml")
+	fs.StringVar(&conf.PrettierOptions.ArrowParens, "arrow-parens", "always", "Arrow function parens - always or avoid")
 	fs.IntVar(&conf.PrettierOptions.TabWidth, "tab-width", 2, "Tab width")
 	fs.BoolVar(&conf.PrettierOptions.WithSemi, "semi-colon", true, "With or without semi colon")
 
@@ -45,6 +46,10 @@ func validateConfig(conf config) []error {
 
 	if conf.PrettierOptions.TabWidth > 12 {
 		validationErrors = append(validationErrors, errors.New("tab width number must be lower or equal to 12"))
+	}
+
+	if conf.PrettierOptions.ArrowParens != "avoid" && conf.PrettierOptions.ArrowParens != "always" {
+		validationErrors = append(validationErrors, errors.New("invalid option value for arrow parens"))
 	}
 
 	return validationErrors

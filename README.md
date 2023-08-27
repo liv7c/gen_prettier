@@ -49,6 +49,8 @@ gen_prettier -d /your-custom-directory
 
 `gen_prettier` generates a prettier file that contains some of the most common prettier options generally present in a prettier file such as the `tabWidth` and the `semiColon` options. You can customize those two options directly from the CLI when you generate the prettier file using the `-tab-width` and the `-semi-colon` flags.
 
+#### With or without semi colon
+
 By default, gen_prettier generates a prettier file with the semiColon option set to true. It also sets the tab width option to `2`.
 
 If you want to set the semi colon option to false, pass the flag `semi-colon` with the value of `false`.
@@ -57,8 +59,20 @@ If you want to set the semi colon option to false, pass the flag `semi-colon` wi
 gen_prettier -semi-colon=false
 ```
 
+#### Set the tab width
+
 For the tab width options, the CLI allows a tab width of any number less or equal to 12. You can pass your desired tab width using the `-tab-width`:
 
 ```sh
 gen_prettier -tab-width 4
+```
+
+#### Set the arrow parens option
+
+By default, `gen_prettier` sets this option to `"always"`. You can set it to `"always"` or `"avoid"`. For more information about what this option does, check out the [prettier offical documentation](https://prettier.io/docs/en/options.html#arrow-function-parentheses).
+
+For instance, if you want to set arrow parens to `avoid`, you can use the `-arrow-parens` flag:
+
+```sh
+gen_prettier -arrow-parens avoid
 ```
