@@ -8,8 +8,10 @@ import (
 // prettierOptions is a struct that contains a series of prettier
 // options that the user can customize from the CLI command
 type prettierOptions struct {
-	WithSemi bool
-	TabWidth int
+	ArrowParens string
+	TabWidth    int
+	SingleQuote bool
+	WithSemi    bool
 }
 
 // config contains all the configuration settings

@@ -1,10 +1,10 @@
 /** @type {import("prettier").Config} */
 const config = {
-  arrowParens: "always",
+  arrowParens: '{{.PrettierOptions.ArrowParens}}',
   bracketSpacing: false,
   printWidth: 80,
   semi: {{.PrettierOptions.WithSemi}},
-  singleQuote: true,
+  singleQuote: {{.PrettierOptions.SingleQuote}},
   tabWidth: {{.PrettierOptions.TabWidth}},
   trailingComma: "es5",
   useTabs: false
