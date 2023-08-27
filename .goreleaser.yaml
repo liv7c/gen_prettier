@@ -41,11 +41,10 @@ changelog:
 universal_binaries:
   - replace: true
 brews:
-  - 
-    name: gen_prettier
-    homepage: https://github.com/liv7c/gen_prettier
+  - name: gen_prettier
+    homepage: https://github.com/liv7c/homebrew-gen_prettier
     repository:
-      name:  gen_prettier
+      name: homebrew-gen_prettier
       owner: liv7c
     commit_author:
       name: liv7c
