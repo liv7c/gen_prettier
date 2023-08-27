@@ -24,8 +24,8 @@ func TestParseFlags(t *testing.T) {
 				TargetDirectory: ".",
 				FileExtension:   "rc",
 				PrettierOptions: prettierOptions{
-					withSemi: true,
-					tabWidth: 2,
+					WithSemi: true,
+					TabWidth: 2,
 				},
 			},
 		},
@@ -37,8 +37,8 @@ func TestParseFlags(t *testing.T) {
 				TargetDirectory: "/test/dir",
 				FileExtension:   "rc",
 				PrettierOptions: prettierOptions{
-					withSemi: false,
-					tabWidth: 4,
+					WithSemi: false,
+					TabWidth: 4,
 				},
 			},
 		},
@@ -50,8 +50,8 @@ func TestParseFlags(t *testing.T) {
 				TargetDirectory: ".",
 				FileExtension:   "rc",
 				PrettierOptions: prettierOptions{
-					withSemi: true,
-					tabWidth: 2,
+					WithSemi: true,
+					TabWidth: 2,
 				},
 			},
 			expectedOutputContains: "Usage of gen_prettier:",
@@ -98,7 +98,7 @@ func TestValidateConfig(t *testing.T) {
 				FileExtension:   "yaml",
 				TargetDirectory: "/dir/path",
 				PrettierOptions: prettierOptions{
-					tabWidth: 4,
+					TabWidth: 4,
 				},
 			},
 			errs: []error{},
@@ -106,7 +106,7 @@ func TestValidateConfig(t *testing.T) {
 		{
 			conf: config{
 				PrettierOptions: prettierOptions{
-					tabWidth: 14,
+					TabWidth: 14,
 				},
 				FileExtension: "ts",
 			},

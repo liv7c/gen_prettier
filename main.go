@@ -8,8 +8,8 @@ import (
 // prettierOptions is a struct that contains a series of prettier
 // options that the user can customize from the CLI command
 type prettierOptions struct {
-	withSemi bool
-	tabWidth int
+	WithSemi bool
+	TabWidth int
 }
 
 // config contains all the configuration settings
@@ -39,5 +39,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Println("Current config", conf)
+	err = createConfigFile(conf)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+	fmt.Println("prettier file successfully created!")
 }
