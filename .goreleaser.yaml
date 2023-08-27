@@ -45,7 +45,7 @@ brews:
     name: gen_prettier
     homepage: https://github.com/liv7c/gen_prettier
     repository:
-      name: homebrew-gen_prettier
+      name:  gen_prettier
       owner: liv7c
     commit_author:
       name: liv7c
