@@ -25,6 +25,7 @@ func TestParseFlags(t *testing.T) {
 				FileExtension:   "rc",
 				PrettierOptions: prettierOptions{
 					ArrowParens: "always",
+					SingleQuote: true,
 					WithSemi:    true,
 					TabWidth:    2,
 				},
@@ -39,6 +40,7 @@ func TestParseFlags(t *testing.T) {
 				FileExtension:   "rc",
 				PrettierOptions: prettierOptions{
 					ArrowParens: "always",
+					SingleQuote: true,
 					WithSemi:    false,
 					TabWidth:    4,
 				},
@@ -53,6 +55,7 @@ func TestParseFlags(t *testing.T) {
 				FileExtension:   "rc",
 				PrettierOptions: prettierOptions{
 					ArrowParens: "always",
+					SingleQuote: true,
 					WithSemi:    true,
 					TabWidth:    2,
 				},
@@ -102,6 +105,7 @@ func TestValidateConfig(t *testing.T) {
 				TargetDirectory: "/dir/path",
 				PrettierOptions: prettierOptions{
 					ArrowParens: "always",
+					SingleQuote: true,
 					TabWidth:    4,
 				},
 			},

@@ -25,6 +25,7 @@ func parseFlags(w io.Writer, args []string) (config, error) {
 	fs.StringVar(&conf.FileExtension, "ext", "rc", "File extension for your prettier file. Choose between rc, js, json or yaml")
 	fs.StringVar(&conf.PrettierOptions.ArrowParens, "arrow-parens", "always", "Arrow function parens - always or avoid")
 	fs.IntVar(&conf.PrettierOptions.TabWidth, "tab-width", 2, "Tab width")
+	fs.BoolVar(&conf.PrettierOptions.SingleQuote, "single-quote", true, "Whether to use single quotes or not")
 	fs.BoolVar(&conf.PrettierOptions.WithSemi, "semi-colon", true, "With or without semi colon")
 
 	err := fs.Parse(args)

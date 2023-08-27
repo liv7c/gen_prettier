@@ -9,8 +9,9 @@ import (
 // options that the user can customize from the CLI command
 type prettierOptions struct {
 	ArrowParens string
-	WithSemi    bool
 	TabWidth    int
+	SingleQuote bool
+	WithSemi    bool
 }
 
 // config contains all the configuration settings

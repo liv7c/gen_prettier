@@ -26,6 +26,7 @@ func Test_createConfigFile(t *testing.T) {
 				PrettierOptions: prettierOptions{
 					ArrowParens: "always",
 					WithSemi:    false,
+					SingleQuote: true,
 					TabWidth:    4,
 				},
 			},
@@ -40,6 +41,7 @@ func Test_createConfigFile(t *testing.T) {
 				PrettierOptions: prettierOptions{
 					ArrowParens: "always",
 					WithSemi:    false,
+					SingleQuote: true,
 					TabWidth:    4,
 				},
 			},
@@ -54,6 +56,7 @@ func Test_createConfigFile(t *testing.T) {
 				PrettierOptions: prettierOptions{
 					ArrowParens: "always",
 					WithSemi:    false,
+					SingleQuote: true,
 					TabWidth:    4,
 				},
 			},
@@ -68,6 +71,7 @@ func Test_createConfigFile(t *testing.T) {
 				PrettierOptions: prettierOptions{
 					ArrowParens: "always",
 					WithSemi:    true,
+					SingleQuote: true,
 					TabWidth:    2,
 				},
 			},

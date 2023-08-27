@@ -76,3 +76,11 @@ For instance, if you want to set arrow parens to `avoid`, you can use the `-arro
 ```sh
 gen_prettier -arrow-parens avoid
 ```
+
+#### Use single quotes or double quotes
+
+`gen_prettier` sets the option `singleQuote` to true by default. You can also set it to false if you want to using the `-single-quote=false` flag:
+
+```sh
+gen_prettier -single-quote=false
+```
