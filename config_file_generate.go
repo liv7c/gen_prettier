@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	_ "embed"
 	"fmt"
 	"os"
@@ -60,11 +61,14 @@ func renderToFile(conf config, tmplMap map[string]string) error {
 			return err
 		}
 
-		err = tmpl.Execute(f, conf)
+		buf := new(bytes.Buffer)
+
+		err = tmpl.Execute(buf, conf)
 		if err != nil {
 			return err
 		}
 
+		buf.WriteTo(f)
 		f.Close()
 	}
 
