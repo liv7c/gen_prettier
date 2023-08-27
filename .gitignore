@@ -22,3 +22,5 @@ go.work
 
 # CLI binary file
 gen_prettier
+
+dist/
