@@ -1,0 +1,13 @@
+/** @type {import("prettier").Config} */
+const config = {
+  arrowParens: "always",
+  bracketSpacing: false,
+  printWidth: 80,
+  semi: {{.PrettierOptions.WithSemi}},
+  singleQuote: true,
+  tabWidth: {{.PrettierOptions.TabWidth}},
+  trailingComma: "es5",
+  useTabs: false
+};
+
+module.exports = config
