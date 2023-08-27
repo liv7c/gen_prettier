@@ -2,6 +2,36 @@
 
 `gen_prettier` is a small CLI tool to generate a prettier configuration for your project.
 
+## Installation
+
+### For homebrew users
+
+To install the CLI with homebrew, enter the following commands:
+
+```sh
+brew tap liv7c/gen_prettier
+brew install gen_prettier
+```
+
+### Install it with `go install`
+
+You can install it with `go install`:
+
+```sh
+go install github.com/liv7c/gen_prettier@latest
+```
+
+Make sure that your `PATH` in your bashrc or zshrc contains the `GOPATH` bin directory.
+
+```sh
+# in your bashrc or zshrc:
+export PATH="$HOME/go/bin:$PATH"
+```
+
+### Manually download the binary
+
+You can download the binary from the [releases page](https://github.com/liv7c/gen_prettier/releases).
+
 ## Usage
 
 To generate a `.prettierrc` in your current directory:
