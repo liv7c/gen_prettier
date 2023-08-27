@@ -10,6 +10,12 @@ To generate a `.prettierrc` in your current directory:
 gen_prettier
 ```
 
+You can customize the target directory using the `-d` (directory) flag:
+
+```sh
+gen_prettier -d /custom/dir
+```
+
 ### Customize the file type
 
 `gen_prettier` currently supports different file types. It can generate a `rc` file (`.prettierrc`), a json file (`.prettierrc.json`), a `js` file (`.prettierrc.js`) and a yaml file (`.prettierrc.yaml`).
