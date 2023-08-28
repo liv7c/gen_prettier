@@ -51,7 +51,12 @@ func renderToFile(conf config, tmplMap map[string]string) error {
 	tmpl := template.New("prettier")
 
 	for filename, t := range tmplMap {
-		f, err := os.Create(filepath.Join(conf.TargetDirectory, filename))
+		targetFileToCreate := filepath.Join(conf.TargetDirectory, filename)
+		if FileExists(targetFileToCreate) {
+			return fmt.Errorf("%q found. not file created as prettier config already exists in target directory", targetFileToCreate)
+		}
+
+		f, err := os.Create(targetFileToCreate)
 		if err != nil {
 			return err
 		}
@@ -73,4 +78,14 @@ func renderToFile(conf config, tmplMap map[string]string) error {
 	}
 
 	return nil
+}
+
+// FileExists checks for file existence. It will return false if file does not exist or if given filename is a directory.
+// It returns true otherwise.
+func FileExists(filename string) bool {
+	info, err := os.Stat(filename)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return !info.IsDir()
 }

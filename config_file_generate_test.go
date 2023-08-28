@@ -103,3 +103,57 @@ func Test_createConfigFile(t *testing.T) {
 	}
 
 }
+
+func TestCreateConfigFile_DoesNotOverrideExistingPrettierConfig(t *testing.T) {
+	tempDir := t.TempDir()
+	expectedDir := "./testdata"
+
+	testcase := struct {
+		conf                config
+		generatedFile       string
+		expectedFileContent string
+	}{
+		conf: config{
+			FileExtension:   "rc",
+			TargetDirectory: tempDir,
+			PrettierOptions: prettierOptions{
+				ArrowParens: "always",
+				WithSemi:    false,
+				SingleQuote: true,
+				TabWidth:    4,
+			},
+		},
+		generatedFile:       filepath.Join(tempDir, ".prettierrc"),
+		expectedFileContent: filepath.Join(expectedDir, ".prettierrc"),
+	}
+
+	err := createConfigFile(testcase.conf)
+	if err != nil {
+		t.Fatalf("expected no error, got non-nil error: %v", err)
+	}
+
+	// try to recreate file
+	err = createConfigFile(testcase.conf)
+	if err == nil {
+		t.Error("expected err, got nil instead")
+	}
+
+	// check that prettier config file content is correct
+	content, err := os.ReadFile(testcase.generatedFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	expectedContent, err := os.ReadFile(testcase.expectedFileContent)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if !bytes.Equal(content, expectedContent) {
+		t.Errorf("expected: %q, got: %q", string(expectedContent), string(content))
+	}
+
+	if !bytes.Equal(content, expectedContent) {
+		t.Errorf("expected %q, got %q instead", expectedContent, content)
+	}
+}
